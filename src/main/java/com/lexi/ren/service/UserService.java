@@ -19,4 +19,8 @@ public class UserService {
     public void addUser(User user) throws SQLException {
         getUserDao().addUser(user);
     }
+
+    public User findUserById(int id) throws SQLException {
+        return getUserDao().findUserById(id);
+    }
 }
