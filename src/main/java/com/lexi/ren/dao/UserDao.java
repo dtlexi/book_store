@@ -23,4 +23,22 @@ public class UserDao {
         User user= runner.query(sql,new BeanHandler<User>(User.class),id);
         return user;
     }
+
+    public User findUserByActiveCode(String code) throws SQLException {
+        QueryRunner runner=new QueryRunner(C3P0Utils.getDataSource());
+        String sql="SELECT * FROM user WHERE activeCode=?";
+        return runner.query(sql,new BeanHandler<User>(User.class),code);
+    }
+
+    public boolean activeUser(String code) throws SQLException {
+        QueryRunner runner=new QueryRunner(C3P0Utils.getDataSource());
+        String sql="UPDATE user SET state=1 WHERE activeCode=? AND state=0";
+        return runner.update(sql,code)>0;
+    }
+
+    public User findUserByUserNameAndPwd(String username,String pwd) throws SQLException {
+        QueryRunner qr=new QueryRunner(C3P0Utils.getDataSource());
+        String sql="select * from user where username=? and PASSWORD=?";
+        return qr.query(sql,new BeanHandler<User>(User.class),username,pwd);
+    }
 }

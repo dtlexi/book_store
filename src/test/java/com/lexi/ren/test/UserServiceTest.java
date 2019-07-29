@@ -17,4 +17,17 @@ public class UserServiceTest {
         User user = service.findUserById(1);
         System.out.println(user);
     }
+    @Test
+    public void testFindUserByUserNameAndPwd() throws SQLException {
+        UserService service = new UserService();
+        User user = service.findUserByUserNameAndPwd("123","123");
+        System.out.println(user);
+    }
+
+    @Test
+    public void testFindUserByActiveCode() throws SQLException {
+        UserService service = new UserService();
+        User user = service.findUserByActiveCode("459411b7-347e-4643-83aa-b806bd367675");
+        System.out.println(user);
+    }
 }
