@@ -41,4 +41,10 @@ public class UserDao {
         String sql="select * from user where username=? and PASSWORD=?";
         return qr.query(sql,new BeanHandler<User>(User.class),username,pwd);
     }
+
+    public boolean updateUser(User user) throws SQLException {
+        String sql="update user set PASSWORD=?,gender=?,telephone=? where id=?";
+        QueryRunner runner=new QueryRunner(C3P0Utils.getDataSource());
+        return runner.update(sql,user.getPassword(),user.getGender(),user.getTelephone(),user.getId())>0;
+    }
 }

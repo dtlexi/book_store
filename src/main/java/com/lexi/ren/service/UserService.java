@@ -52,4 +52,17 @@ public class UserService {
         }
         return user;
     }
+
+    public User updateUser(User user)
+    {
+        try {
+            if(user!=null&&user.getId()>0&&getUserDao().updateUser(user))
+            {
+                return getUserDao().findUserById(user.getId());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

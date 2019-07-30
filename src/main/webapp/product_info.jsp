@@ -21,7 +21,7 @@
 
 				<td><div style="text-align:right; margin:5px 10px 5px 0px">
 						<a href="index.html">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;<a
-							href="product_list.html">&nbsp;计算机</a>&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;Thinking In Java
+							href="product_list.html">&nbsp;${book.category}</a>&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;${book.name}
 					</div>
 
 
@@ -50,15 +50,15 @@
 											</div></td>
 										<td style="padding:20px 5px 5px 5px"><img
 											src="images/miniicon3.gif" width="16" height="13" /><font
-											class="bookname">&nbsp;&nbsp;Thinking in java</font>
+											class="bookname">&nbsp;&nbsp;${book.name}</font>
 
-											<hr />售价：<font color="#FF0000">￥100</font>
-											<hr /> 类别：计算机
+											<hr />售价：<font color="#FF0000">￥${book.price}</font>
+											<hr /> 类别：${book.category}
 
 											<hr />
 											<p>
 												<b>内容简介：</b>
-											</p> java 经典书籍</td>
+											</p> ${book.description}</td>
 									</tr>
 								</table></td>
 						</tr>
